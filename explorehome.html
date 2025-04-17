@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - MadraVenture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: white;
+            padding: 12px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff7f00 !important;
+        }
+
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #222 !important;
+        }
+
+        .home-icon {
+            font-size: 1.8rem;
+            color: black;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .home-link:hover .home-icon {
+            color: #333;
+            transform: scale(1.1);
+        }
+
+        .main-content {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .place-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 800px; /* Adjust the width as needed */
+}
+
+        .place-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .place-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .place-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .map-container {
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">MadraVenture</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link home-link" href="homepage.html">
+                            <i class="bi bi-house home-icon"></i>
+                        </a>
+                    </li>                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <h2 class="text-center mb-4">Top Places to Visit in Chennai</h2>
+
+        <div class="row place-card">
+            <div class="col-md-6">
+                <img src="marina1.jpg" class="place-img" alt="Marina Beach">
+            </div>
+            <div class="col-md-6 p-3 details">
+                <h3 class="place-name">Marina Beach</h3>
+                <p class="place-desc">One of the longest urban beaches in the world, perfect for evening strolls and sunrise views.</p>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Marina+Beach,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="row place-card">
+            <div class="col-md-6">
+                <img src="Kapaleeswarar1.jpg" class="place-img" alt="Kapaleeshwarar Temple">
+            </div>
+            <div class="col-md-6 p-3 details">
+                <h3 class="place-name">Kapaleeshwarar Temple</h3>
+                <p class="place-desc">A historic Dravidian-style temple dedicated to Lord Shiva, known for its intricate carvings and religious significance.</p>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Kapaleeshwarar+Temple,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="row place-card">
+            <div class="col-md-6">
+                <img src="fort1.jpg" class="place-img" alt="Fort St. George">
+            </div>
+            <div class="col-md-6 p-3 details">
+                <h3 class="place-name">Fort St. George</h3>
+                <p class="place-desc">Built by the British in 1644, this fort now houses a museum showcasing colonial history and artifacts.</p>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Fort+St.+George,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row place-card">
+        <div class="col-md-6">
+            <img src="valluvar1.jpg" class="place-img" alt="Fort St. George">
+        </div>
+        <div class="col-md-6 p-3 details">
+            <h3 class="place-name">Valluvar kottam</h3>
+            <p class="place-desc">  "A grand monument in Chennai, stands as a tribute to the legendary Tamil poet Thiruvalluvar, featuring a majestic chariot-shaped auditorium and intricate stone inscriptions of all 1,330 Thirukkural verses—a true marvel of Tamil heritage and architectural brilliance."</p>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=Valluvar+Kottam,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row place-card">
+        <div class="col-md-6">
+            <img src="museum1.jpg" class="place-img" alt="Fort St. George">
+        </div>
+        <div class="col-md-6 p-3 details">
+            <h3 class="place-name">Government Chennai museum</h3>
+            <p class="place-desc">"Step into history at the Government Museum, Chennai – where art, culture, and heritage come alive! " </p>
+            <div class="map-container">
+                <iframe src= "https://maps.google.com/maps?q=Government+Museum,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"  width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row place-card">
+    <div class="col-md-6">
+        <img src="santhome.jpg" class="place-img" alt="Fort St. George">
+    </div>
+    <div class="col-md-6 p-3 details">
+        <h3 class="place-name"> Santhome Cathedral Basilica,</h3>
+        <p class="place-desc"> " A breathtaking blend of history and spirituality, stands as a magnificent tribute to St. Thomas, one of Jesus' twelve apostles, offering visitors a serene escape with its stunning neo-Gothic architecture and coastal charm."</p>
+        <div class="map-container">
+            <iframe src= "https://maps.google.com/maps?q=Santhome+Cathedral+Basilica,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"  width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row place-card">
+    <div class="col-md-6">
+        <img src="arulmigu1.jpg" class="place-img" alt="Fort St. George">
+    </div>
+    <div class="col-md-6 p-3 details">
+        <h3 class="place-name">Arulmigu Sri Parthasarathyswamy Temple </h3>
+        <p class="place-desc"> A centuries-old marvel in Chennai, stands as a testament to divine devotion and intricate Dravidian architecture. Adorned with vibrant sculptures and rich history, this sacred temple echoes the tales of Lord Krishna in his majestic charioteer form </p>
+        <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=Arulmigu+Sri+Parthasarathyswamy+Temple,Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed " width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      
+    </script>
+</body>
+</html>

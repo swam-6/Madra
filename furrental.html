@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Rentals - MadraVenture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .navbar {
+            background-color: white;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: orange !important;
+        }
+        .nav-link {
+            color: grey !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            margin-right: 15px;
+        }
+        .nav-link:hover {
+            color: black !important;
+        }
+        .login-btn {
+            background-color: transparent;
+    color: #555;
+    border: 1px solid #555;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+        }
+        .login-btn:hover {
+            background-color: grey;
+            color: white;
+        }
+        .home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.home-link:hover {
+    background: rgba(239, 237, 237, 0.05); /* Light grey background on hover */
+    border-radius: 50%;
+}
+
+.home-icon:hover {
+    color: #333; /* Slightly darker black on hover */
+    transform: scale(1.1); /* Minimal scaling */
+}
+        .rental-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .rental-card:hover {
+            transform: scale(1.05);
+        }
+        .rental-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .search-bar {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .footer {
+    background-color: #f8f9fa; /* Light background */
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff7f00; /* Orange accent */
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 20px;
+    color: #555;
+    margin: 0 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    color: #ff7f00; /* Orange hover effect */
+    transform: scale(1.1);
+}
+.home-icon {
+    font-size: 1.8rem; /* Slightly larger for better visibility */
+    color: black;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.home-link:hover {
+    background: rgba(239, 237, 237, 0.05); /* Light grey background on hover */
+    border-radius: 50%;
+}
+
+.home-icon:hover {
+    color: #333; /* Slightly darker black on hover */
+    transform: scale(1.1); /* Minimal scaling */
+}
+.fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000; /* Black Circle */
+            color: white; /* White Icon */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .fab:active {
+            background-color: transparent; /* Transparent on Click */
+            border: 2px solid white; /* White border for visibility */
+            transform: scale(0.9); /* Slight shrink effect */
+        }
+
+        .fab i {
+            transition: color 0.3s;
+        }
+
+        .fab:active i {
+            color: black; /* Icon turns black when button is transparent */
+        }
+        /* Center the search bar */
+.search-bar-container {
+    display: flex;
+    justify-content: center; /* Centers the input horizontally */
+    margin-bottom: 30px; /* Adds spacing between search bar and results */
+}
+
+/* Style the search bar */
+#searchFurniture {
+    width: 250px; /* Set the initial width of the search bar */
+    transition: width 0.3s ease, background-color 0.3s ease; /* Add smooth transitions */
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Hover effect for the search bar */
+#searchFurniture:hover {
+    background-color: #f1f1f1; /* Change background color on hover */
+    width: 300px; /* Expand the width on hover */
+}
+
+/* Focus effect for the search bar */
+#searchFurniture:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle glow effect on focus */
+}
+/* Center the Rent Now button */
+.rent-button-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 30px; /* Adds some space above the button */
+}
+
+/* Style the Rent Now button */
+.rent-now-btn {
+    background-color: #ff6f00; /* Orange background color */
+    border-color: #ff6f00; /* Matching border color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for better button size */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Set font size */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Change cursor to pointer when hovered */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect for the Rent Now button */
+.rent-now-btn:hover {
+    background-color: #ff8c1a; /* Lighter orange color on hover */
+    border-color: #ff8c1a; /* Matching border color */
+}
+
+/* Active effect for Rent Now button (when clicked) */
+.rent-now-btn:active {
+    background-color: #ffb84d; /* Light orange color on click */
+    border-color: #ffb84d; /* Matching border color */
+}
+
+   
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <a class="navbar-brand text-orange fw-bold" href="#">MadraVenture</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <li class="nav-item me-3">
+                        <a href="homepage.html">
+                            <i class="bi bi-house home-icon fs-4"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="btn btn-outline-secondary px-3 py-2">Login</a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2 class="mb-4 text-center"></h2>
+        
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+            <input type="text" id="searchFurniture" class="form-control mb-4" placeholder="Search for furniture by name...">
+        </div>
+        
+        <div id="furnitureList" class="row"></div>
+    </div>
+    
+    <button class="fab" onclick="window.open('regfurniture.html', '_self')">
+        <i class="fas fa-plus"></i>
+    </button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h5>MadraVenture</h5>
+            <p>Discover Chennai with the best local services.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+            <p class="mt-3">&copy; 2025 MadraVenture. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    
+
+    <script>
+       // Function to fetch and display furniture based on search query
+async function loadFurniture(searchQuery = '') {
+    try {
+        // Fetch furniture from backend with the search query
+        const response = await fetch(`http://localhost:5500/furniture?search=${encodeURIComponent(searchQuery)}`);
+        const furnitureItems = await response.json();
+
+        const furnitureList = document.getElementById("furnitureList");
+        furnitureList.innerHTML = "";  // Clear the previous list
+
+        // Check if there are any furniture items
+        if (furnitureItems.length === 0) {
+            furnitureList.innerHTML = "<p>No furniture found</p>";
+        }
+
+        // Loop through the furniture items and create the cards
+        furnitureItems.forEach(furniture => {
+            const furnitureCard = document.createElement("div");
+            furnitureCard.className = "col-md-4 mb-4";
+
+            // Use base64 image or default if not available
+            const imageSrc = furniture.furnitureImage 
+                ? `data:image/jpeg;base64,${furniture.furnitureImage}` 
+                : "default.jpg";  // Default image if no image is available
+
+            furnitureCard.innerHTML = `
+                <div class="card shadow">
+                    <img src="${imageSrc}" class="card-img-top" alt="Furniture Image" height="250px" width="100%">
+                    <div class="card-body">
+                        <h5 class="card-title">${furniture.furnitureName}</h5>
+                        <p class="card-text">${furniture.location}</p>
+                        <p class="card-text"><strong>₹${furniture.rentAmount} per hour</strong></p>
+                        <div class="rent-button-container">
+                         <button class="btn rent-now-btn">Rent Now</button>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+            furnitureList.appendChild(furnitureCard);
+        });
+    } catch (error) {
+        console.error("❌ Error fetching furniture:", error);
+    }
+}
+
+// Event listener for search input
+document.getElementById("searchFurniture").addEventListener("input", (event) => {
+    const searchQuery = event.target.value.trim();
+    loadFurniture(searchQuery);  // Call loadFurniture with updated search query
+    
+});
+
+// Load furniture on page load
+document.addEventListener("DOMContentLoaded", () => loadFurniture());
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("rent-now-btn")) {
+        alert("furniture rented successfully!");
+    }
+ 
+    }
+);
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

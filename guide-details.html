@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Details</title>
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+       
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card.shadow {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            margin: auto;
+        }
+
+        .card.shadow:hover {
+            transform: scale(1.02);
+        }
+
+        
+        .card-img-top {
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            height: 250px;
+        }
+
+       
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+       
+        .card-text strong {
+            color: #2e8b57;
+            font-size: 18px;
+        }
+
+       
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .card.shadow {
+                width: 100%;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-text {
+                font-size: 15px;
+            }
+        }
+    
+.pay-btn {
+  background: #f39c12;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pay-btn:hover {
+  background: #f8c471;
+  color: #333;
+  transform: translateY(-2px);
+}
+</style>
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Guide Details</h2>
+        <div id="guideDetails" class="card shadow" style="width: 100%; max-width: 400px;"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const guideId = urlParams.get('id');
+
+    
+        async function loadGuideDetails() {
+            try {
+                const response = await fetch(`http://localhost:5500/guides/${guideId}`);
+                const guide = await response.json();
+
+                const guideDetails = document.getElementById("guideDetails");
+
+                guideDetails.innerHTML = `
+                    <img src="${guide.image || 'default.jpg'}" class="card-img-top" alt="Guide Image">
+                    <div class="card-body">
+                        <h5 class="card-title">${guide.name}</h5>
+                        <p class="card-text">${guide.about}</p>
+                        <p class="card-text"><strong>₹${guide.amount} per hour</strong></p>
+                        <button class="btn pay-btn w-100 mt-3">Pay Now</button>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Error fetching guide details:", error);
+                document.getElementById("guideDetails").innerHTML = "<p>Unable to load guide details. Please try again later.</p>";
+            }
+        }
+
+        window.onload = loadGuideDetails;
+        document.addEventListener("click", function (e) {
+    if (e.target && e.target.classList.contains("pay-btn")) {
+        alert("💳 Payment successful! Thank you for hiring your guide.");
+         window.location.href = "homepage.html";
+    }
+});
+
+    </script>
+
+</body>
+</html>
